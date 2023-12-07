@@ -68,3 +68,31 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+what if packages deprecateed?
+
+If you want to automatically update all deprecated packages to their latest versions without manually replacing each package name, you can use the `npm-check-updates` (ncu) tool. This tool allows you to upgrade your package.json dependencies to their latest versions.
+
+First, install `npm-check-updates` globally:
+
+```bash
+npm install -g npm-check-updates
+```
+
+Then, you can use the following commands to update all deprecated packages:
+
+```bash
+# Check for outdated packages
+ncu
+
+# Upgrade package.json with the latest versions (including deprecated packages)
+ncu -u
+
+# Install the updated packages
+npm install
+```
+
+The `ncu` command without the `-u` flag will only show you a list of outdated packages. The `-u` flag updates your `package.json` file with the latest versions. After updating the `package.json`, you can run `npm install` to install the new package versions.
+
+Keep in mind that upgrading all packages automatically may introduce breaking changes, so it's crucial to test your application thoroughly after running these commands. Additionally, make sure to commit your changes to version control before updating dependencies.
