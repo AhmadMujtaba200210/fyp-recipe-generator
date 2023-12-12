@@ -5,11 +5,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import Contact from './components/contact/contact';
-import { Home } from './components/Home/home';
+import Contact from './screens/contact/contact';
+import { Home } from './screens/home/home';
 import NotFound from './NotFound';
-import Listing from './components/recipelisting/Listing';
-import { About } from './components/about/About';
+import Listing from './screens/recipelisting/Listing';
+import { About } from './screens/about/About';
+import { Blog } from './screens/blog/Blog';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/blog",
-    element: <NotFound />,
+    element: <Blog/>,
   },
   {
     path:"/contact",
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
   {
     path:"/community",
     element: <NotFound/>,
-  }
+  },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
