@@ -29,7 +29,6 @@ export const Blog = () => {
                   2
                 </a>
               </div>
-
             </div>
 
             <div id="sidebar">

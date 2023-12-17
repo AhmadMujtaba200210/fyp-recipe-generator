@@ -1,22 +1,35 @@
 import React from "react";
-import "../../shared/navigationbar.css";
 import { NavigationBar } from "../../shared/NavigationBar";
-import VerticalListing from "../../components/verticalListing/VerticalListing";
-import MiscRecipes from "../../components/misc-recipes/MiscRecipes";
-import Cusine from "../../components/cusines/Cusine";
 import Search from "../../components/search/search";
 import Footer from "../../components/footer/Footer";
+import MiscRecipes from "../../components/misc-recipes/MiscRecipes";
 import { NewsEvents } from "../../components/news-events/NewsEvents";
-const Listing = () => {
+import Cusine from "../../components/cusines/Cusine";
+import VerticalListing from "../../components/vertical-listing/VerticalListing";
+
+
+ const Listing = () => {
   return (
     <div>
       <div class="main-wrap">
         <NavigationBar />
         <div id="container">
-          <Search />
+          <div class="top-search  clearfix">
+            <Search />
+          </div>
+
           <div id="content" class="clearfix ">
             <div id="left-area" class="clearfix">
-              <VerticalListing />
+             <VerticalListing />
+
+              <div id="pagination">
+                <a href="#" class="btn current">
+                  1
+                </a>
+                <a href="#" class="btn">
+                  2
+                </a>
+              </div>
             </div>
 
             <div id="sidebar">
@@ -24,11 +37,11 @@ const Listing = () => {
               <NewsEvents />
               <Cusine />
             </div>
+            {/* Left section end here */}
           </div>
         </div>
       </div>
 
-      {/* Footer here */}
       <div id="footer-wrap">
         <Footer />
       </div>
@@ -36,4 +49,4 @@ const Listing = () => {
   );
 };
 
-export default Listing;
+export default Listing

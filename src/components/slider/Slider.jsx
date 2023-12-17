@@ -19,9 +19,9 @@ export const Slider = () => {
               <img
                 width={515}
                 height={262}
-                src="/src/assets/images/demo/7a0a46455c4ec56a5a02c097374fc513-515x262.jpg"
+                src=""
                 className="attachment-li-slider-thumb wp-post-image"
-                alt="7a0a46455c4ec56a5a02c097374fc513"
+                alt="slider image here"
               />
             </a>
             <div className="slide-info">
