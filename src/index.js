@@ -4,7 +4,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-
 import Contact from './screens/contact/contact';
 import { Home } from './screens/home/home';
 import NotFound from './NotFound';

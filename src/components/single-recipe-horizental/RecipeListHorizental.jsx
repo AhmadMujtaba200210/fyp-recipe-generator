@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../shared/navigationbar.css";
 import { getRecipesRandom } from "../../server/requests" ; 
 
+console.log(process.env)
 const RecipeListHorizental = () => {
   const [recipes, setRecipes] = useState([]);
 
@@ -26,7 +27,7 @@ const RecipeListHorizental = () => {
           <li key={recipe.id}>
             <a href={`recipe-single-${recipe.id}.html`} className="img-box">
               <img
-                src={recipe.image} // Assuming your API provides an 'image' property
+                src={`${process.env.REACT_APP_API_BASE_URL}/get_image_122x132/${recipe.title}.jpg`} // Assuming your API provides an 'image' property
                 className="attachment-recipe-4column-thumb wp-post-image"
                 alt={recipe.title}
               />
