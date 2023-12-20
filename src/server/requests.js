@@ -27,7 +27,7 @@ export const getBlogs = async () => {
 
 export const getRecipesRandom = async (random) => {
     try {
-         return await axios.get(`http://localhost:8081/api/v1/recipe/${random}`)
+         return await axios.get(`http://localhost:8080/api/v1/recipe/${random}`)
     } catch (error) {
         throw error;
     }
@@ -44,6 +44,15 @@ export const getNewsRandom = async (random) => {
 export const getBlogRandom = async (random) => {
     try {
          return await axios.get(`http://localhost:8080/api/v1/blog/${random}`)
+    } catch (error) {
+        throw error;
+    }
+
+}
+
+export const getWeeklySpecial = async () => {
+    try {
+         return await axios.get(`http://localhost:8080/api/v1/recipe/special`)
     } catch (error) {
         throw error;
     }

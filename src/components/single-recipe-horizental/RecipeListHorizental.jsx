@@ -35,7 +35,7 @@ const RecipeListHorizental = () => {
             <h4>
               <a href={`recipe-single-${recipe.id}.html`}>{recipe.title}</a>
             </h4>
-            <p>{recipe.ingredients}</p>
+            <p>{recipe.ingredients.slice(0,100)}...</p>
           </li>
         ))}
       </ul>

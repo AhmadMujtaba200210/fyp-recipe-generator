@@ -4,7 +4,7 @@ import Search from "../../components/search/search";
 import WeeklySpecial from "../../components/weekly-special/WeeklySpecial";
 import { NewsEvents } from "../../components/news-events/NewsEvents";
 import MiscRecipes from "../../components/misc-recipes/MiscRecipes";
-import { Slider } from "../../components/slider/Slider";
+import  Slider  from "../../components/slider/Slider";
 import RecipeListHorizental from "../../components/single-recipe-horizental/RecipeListHorizental";
 import Footer from "../../components/footer/Footer";
 

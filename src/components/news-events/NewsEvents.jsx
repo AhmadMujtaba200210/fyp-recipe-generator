@@ -1,34 +1,41 @@
-import React from "react";
-import "../../shared/navigationbar.css"
+import React, { useState, useEffect } from "react";
+import "../../shared/navigationbar.css";
+import { getNewsRandom } from "../../server/requests"; // Update this path
 
 export const NewsEvents = () => {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await getNewsRandom(3);
+        setNews(response.data);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
   return (
     <div>
-
-      <div class="widget newsEvent nostylewt">
-        <h2 class="w-bot-border">
+      <div className="widget newsEvent nostylewt">
+        <h2 className="w-bot-border">
           <span>News</span> and Events
         </h2>
-        <ul class="list">
-          <li>
-            <h5>
-              <a href="single.html">Best Bread pairing for Barbeque?</a>
-            </h5>
-            <p>
-              Welcome to WordPress. This is your first post. Edit or delete
-              it,...<a href="single.html">more</a>
-            </p>
-          </li>
-          <li>
-            <h5>
-              {" "}
-              <a href="single.html">Best Bread pairing for Barbeque?</a>
-            </h5>
-            <p>
-              Quis sed mid elit, risus aliquet placerat. Pid et, vel phasellus
-              augue...<a href="single.html">more</a>{" "}
-            </p>
-          </li>
+        <ul className="list">
+          {news.map((item) => (
+            <li key={item.id}>
+              <h5>
+                <a href={`single.html`}>{item.title}</a>
+              </h5>
+              <p>
+                {item.description.slice(0, 100)}...{/* Displaying first 100 characters, adjust as needed */}
+                <a href={`single.html`}>more</a>
+              </p>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
