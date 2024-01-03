@@ -11,6 +11,8 @@ import Listing from './screens/recipelisting/Listing';
 import { About } from './screens/about/About';
 import { Blog } from './screens/blog/Blog';
 
+import LoginForm from './components/loginform/login';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,7 +36,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/community",
-    element: <NotFound/>,
+    element: <LoginForm/>,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
