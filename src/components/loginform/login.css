@@ -211,10 +211,6 @@
     transform: translateX(200%);
 }
 
-.quote{
-    font-size: 12px;
-    letter-spacing: 1px;
-    color: #fff;
-    line-height: 20px;
-    margin-top: 20px;
+.para{
+  color: #fff;
 }
