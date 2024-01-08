@@ -1,48 +1,45 @@
 import React from "react";
 import "../../shared/navigationbar.css";
 
-const ContactForm = () => {
+const AddRecipeForm = () => {
   return (
     <div>
-      <h3>Contact Form</h3>
-
+      <h3>Add new recipe</h3>
       <span class="w-pet-border"></span>
       <form id="contact-form" action="contact.php" method="post">
         <p>
           <input
             type="text"
-            name="name"
+            name="title"
             class="required"
             id="cname"
-            data-msg-required="Please enter your name."
+            data-msg-required="Please enter title of your recipe."
             data-rule-required="true"
-            placeholder="Name here"
+            placeholder="Title here"
           />
         </p>
         <p>
           <input
             type="text"
             id="cemail"
-            name="email"
-            class="email"
+            name="ingredients"
+            class="required"
             data-rule-required="true"
-            data-rule-email="true"
-            data-msg-required="Please enter your email address"
-            data-msg-email="Please enter a valid email address"
             aria-required="true"
-            placeholder="Email here"
+            placeholder="Ingredients here"
           />
         </p>
         <p>
           <textarea
-            name="message"
+            name="Instructions"
             id="cmessage"
             class="required"
-            title="* You must enter message."
+            title="Enter step by step instructions."
+            placeholder="Instructions here"
             cols="30"
             rows="6"
-            placeholder="Message here"
           >
+            
           </textarea>
         </p>
         <p>
@@ -66,4 +63,4 @@ const ContactForm = () => {
     </div>
   );
 };
-export default ContactForm;
+export default AddRecipeForm;
