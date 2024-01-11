@@ -22,14 +22,7 @@ import VerticalListing from "../../components/vertical-listing/VerticalListing";
             <div id="left-area" class="clearfix">
              <VerticalListing />
 
-              <div id="pagination">
-                <a href="#" class="btn current">
-                  1
-                </a>
-                <a href="#" class="btn">
-                  2
-                </a>
-              </div>
+            
             </div>
 
             <div id="sidebar">

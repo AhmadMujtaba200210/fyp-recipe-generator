@@ -1,24 +1,24 @@
 import axios from "axios";
 
-export const getRecipes = async () => {
+export const getRecipes = async (page) => {
     try {
-         return await axios.get('http://localhost:8080/api/v1/recipe')
+         return await axios.get(`http://localhost:8080/api/v1/recipe?page=${page}`)
     } catch (error) {
         throw error;
     }
 
 }
-export const getNews = async () => {
+export const getNews = async (page) => {
     try {
-         return await axios.get('http://localhost:8080/api/v1/news')
+         return await axios.get(`http://localhost:8080/api/v1/news?page=${page}`)
     } catch (error) {
         throw error;
     }
 
 }
-export const getBlogs = async () => {
+export const getBlogs = async (page) => {
     try {
-         return await axios.get('http://localhost:8080/api/v1/blog')
+         return await axios.get(`http://localhost:8080/api/v1/blog?page=${page}`)
     } catch (error) {
         throw error;
     }
@@ -27,7 +27,7 @@ export const getBlogs = async () => {
 
 export const getRecipesRandom = async (random) => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/recipe/${random}`)
+         return await axios.get(`http://localhost:8080/api/v1/recipe/hot/${random}`)
     } catch (error) {
         throw error;
     }
@@ -35,7 +35,7 @@ export const getRecipesRandom = async (random) => {
 }
 export const getNewsRandom = async (random) => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/news/${random}`)
+         return await axios.get(`http://localhost:8080/api/v1/news/hot/${random}`)
     } catch (error) {
         throw error;
     }
@@ -43,7 +43,7 @@ export const getNewsRandom = async (random) => {
 }
 export const getBlogRandom = async (random) => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/blog/${random}`)
+         return await axios.get(`http://localhost:8080/api/v1/blog/hot/${random}`)
     } catch (error) {
         throw error;
     }
