@@ -59,8 +59,16 @@ export const getWeeklySpecial = async () => {
 
 }
 
+export const getRecipeDetails=async (id)=>{
+    try {
+        return await axios.get(`http://localhost:8080/api/v1/recipe/id/${id}`)
+    } catch (error) {
+        throw error;
+    }
+}
+
 // TODO: complete all the functionlity under here
-export const saveCustomer = async (customer) => {
+export const loginCustomer = async (customer) => {
     try {
         return await axios.post(`${import.meta.env.API_BASE_URL}/api/v1/customer/register`, customer)
     } catch (error) {

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../../shared/navigationbar.css";
 import { getRecipes } from "../../server/requests";
+import Details from "../../screens/recipe/Details";
+import { Link } from "react-router-dom";
+import { key } from "localforage";
 
 const VerticalListing = () => {
   const [recipes, setRecipes] = useState([]);
@@ -32,10 +35,8 @@ const VerticalListing = () => {
     const buttons = [];
     const maxButtonsToShow = 6;
     const halfMaxButtons = Math.floor(maxButtonsToShow / 3);
-  
     let startPage = Math.max(1, currentPage - halfMaxButtons);
     let endPage = Math.min(totalPages, startPage + maxButtonsToShow - 1);
-  
     // Adjust startPage and endPage if current page is near the beginning or end
     if (currentPage <= halfMaxButtons) {
       startPage = 1;
@@ -44,7 +45,6 @@ const VerticalListing = () => {
       endPage = totalPages;
       startPage = Math.max(1, totalPages - maxButtonsToShow + 1);
     }
-  
     for (let i = startPage; i <= endPage; i++) {
       buttons.push(
         <a
@@ -57,9 +57,10 @@ const VerticalListing = () => {
         </a>
       );
     }
-  
+
     return buttons;
   };
+
 
   return (
     <div>
@@ -70,49 +71,45 @@ const VerticalListing = () => {
 
       {recipes.map((recipe) => (
         <div
-          key={recipe.id}
+          key={recipe.recipeId}
           className="post-315 recipe tag-chocolate-2 tag-cointreau recipe-listing-item clearfix"
         >
           <div className="post-thumb single-img-box">
-            <a href={`recipe-single-${recipe.id}.html`} title={recipe.title}>
-              {/* You can replace this with your actual image source */}
+          <Link to={`/recipe/${recipe.recipeId}`}>
               <img
                 src={`${process.env.REACT_APP_API_BASE_URL}/get_image_250x212/${recipe.title}.jpg`}
                 alt={recipe.title}
               />
-            </a>
+              </Link>
           </div>
           <div className="recipe-info">
             <h2>
-              <a href={`recipe-single-${recipe.id}.html`}>{recipe.title}</a>
+              <Link to={`/recipe/${recipe.recipeId}`}>{recipe.title}</Link>
             </h2>
 
             <div className="recipe-tags">
               <span className="cuisine">
-                Cuisine:{" "}
-                <a href={`recipe-single-${recipe.id}.html`} rel="tag">
-                  {recipe.cuisine}
-                </a>
+                Cuisine: <a rel="tag">{recipe.cuisine}</a>
               </span>
             </div>
 
             <p>{recipe.ingredients.slice(0, 100)}...</p>
 
             <p>
-              <strong>Instructions:</strong> {recipe.instructions.slice(0, 100)}...
+              <strong>Instructions:</strong> {recipe.instructions.slice(0, 100)}
+              ...
             </p>
-
-            <a href={`recipe-single-${recipe.id}.html`} className="readmore">
+            
+            
+            <Link className="readmore" to={`/recipe/${recipe.recipeId}`}>
               Read more
-            </a>
+              </Link>
           </div>
         </div>
       ))}
 
       {/* Pagination controls */}
-      <div id="pagination">
-        {renderPaginationButtons()}
-      </div>
+      <div id="pagination">{renderPaginationButtons()}</div>
     </div>
   );
 };

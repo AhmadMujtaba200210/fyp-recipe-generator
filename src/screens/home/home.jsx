@@ -13,10 +13,8 @@ export const Home = () => {
     <div>
       <div class="main-wrap">
         <NavigationBar />
-        
         <div id="container">
         <Search />
-
           <div id="content" class="clearfix homepage">
             <div id="slider" class="slider2">
               <h2 class="slider-head">
@@ -33,17 +31,12 @@ export const Home = () => {
               <h2 class="w-bot-border">
                 What's <span>Hot</span>
               </h2>
-
               <RecipeListHorizental />
             </div>
-
             <span class="w-pet-border"></span>
-
             <div id="home-infos" class="clearfix">
               <WeeklySpecial />
-
               <MiscRecipes />
-
               <NewsEvents />
             </div>
           </div>

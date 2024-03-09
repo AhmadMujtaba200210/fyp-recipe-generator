@@ -8,7 +8,7 @@ export const NewsEvents = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await getNewsRandom(3);
+        const response = await getNewsRandom(2);
         setNews(response.data);
       } catch (error) {
         console.error("Error fetching news:", error);
@@ -32,7 +32,7 @@ export const NewsEvents = () => {
               </h5>
               <p>
                 {item.description.slice(0, 100)}...{/* Displaying first 100 characters, adjust as needed */}
-                <a href={`single.html`}>more</a>
+                <a href={`single.html`} onClick={{}}>more</a>
               </p>
             </li>
           ))}

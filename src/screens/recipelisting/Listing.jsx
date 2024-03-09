@@ -7,7 +7,6 @@ import { NewsEvents } from "../../components/news-events/NewsEvents";
 import Cusine from "../../components/cusines/Cusine";
 import VerticalListing from "../../components/vertical-listing/VerticalListing";
 
-
  const Listing = () => {
   return (
     <div>

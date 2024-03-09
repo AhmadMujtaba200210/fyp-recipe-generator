@@ -33,15 +33,15 @@ const MiscRecipes = () => {
           <div className="block current">
             <ul className="highest">
               {recipes.map((recipe) => (
-                <li key={recipe.id}>
+                <div style={{ display: 'flex',marginBottom:'10px'}} key={recipe.id}>
                   <img
                     src={`${process.env.REACT_APP_API_BASE_URL}/get_image_43x51/${recipe.title}.jpg`} // Assuming your API provides an 'image' property
                     className="attachment-sidebar-tabs wp-post-image"
                     alt={recipe.title}
                   />
 
-                  <h5>{recipe.title}</h5>
-                </li>
+                  <h5 style={{paddingLeft:'10px',paddingTop:'10px'}}>{recipe.title}</h5>
+                </div>
               ))}
             </ul>
           </div>

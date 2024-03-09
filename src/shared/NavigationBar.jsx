@@ -1,49 +1,52 @@
 import React from "react";
-import '../shared/navigationbar.css';
-import {  Link } from "react-router-dom";
-
+import "../shared/navigationbar.css";
+import { Link } from "react-router-dom";
+import img from '../assets/images/header-image.png'
+import imgLogo from '../assets/images/logo.png'
 
 export const NavigationBar = () => {
   return (
-    
-    <div>
-     
+    <div id="header-wrapper" class="clearfix">
+      <div id="header" class="clearfix">
+        <a class="responsive_logo" href="index.html"><img src={imgLogo} alt="" class="logo" /></a>
+        <a href="index.html"><h1 class="sitenametext">Food Recipes</h1></a>
+        <a href="index.html">
+          <img
+            class="header-img" src={img}alt="Food Recipes"
+          />
+        </a>
+      </div>
+
+      <span class="w-pet-border"></span>
       <div id="nav-wrap">
         <div class="inn-nav clearfix">
           <ul id="menu-main-navigation" class="nav">
             <li>
-              
-                <Link to={`/`}>Home</Link>
+              <Link to={`/`}>Home</Link>
             </li>
-
             <li>
               <Link to={`/recipe`}>Recipe Listing</Link>
             </li>
             <li>
-            <Link to={`/blog`}>Blog</Link>
+              <Link to={`/blog`}>Blog</Link>
             </li>
             <li>
-            <Link to={`/about`}>About</Link>
+              <Link to={`/about`}>About</Link>
             </li>
-
             <li>
-            <Link to={`/contact`}>Contact</Link>
+              <Link to={`/contact`}>Contact</Link>
             </li>
-            
             <li>
-            <Link to={`/community`}>Communtiy</Link>
+              <Link to={`/community`}>Communtiy</Link>
+            </li>
+            <li>
+              <Link to={`/testing`}>testing</Link>
             </li>
           </ul>
-
-         {/* TODO: add social media icons and links */}
           <ul id="menu-social-menu" class="social-nav">
-            <li class="facebook">
-             
-            </li>
+            <li class="facebook"></li>
           </ul>
         </div>
-
-      
         <div class="w-pet-border"></div>
       </div>
     </div>

@@ -1,47 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Contact from './screens/contact/contact';
-import { Home } from './screens/home/home';
-import NotFound from './NotFound';
-import Listing from './screens/recipelisting/Listing';
-import { About } from './screens/about/About';
-import { Blog } from './screens/blog/Blog';
+import App from './App';
+import authReducer from "./state";
+import { persistStore,persistReducer,FLUSH,REHYDRATE,PAUSE,PERSIST,REGISTER,PURGE } from 'redux-persist';
+import storage from "redux-persist/lib/storage";
+import { PersistGate } from 'redux-persist/integration/react';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
 
-import LoginForm from './components/loginform/login';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/about",
-    element: <About/>,
-  },
-  {
-    path: "/blog",
-    element: <Blog/>,
-  },
-  {
-    path:"/contact",
-    element: <Contact/>,
-  },
-  {
-    path:"/recipe",
-    element: <Listing/>,
-  },
-  {
-    path:"/community",
-    element: <LoginForm/>,
-  },
-]);
+//  setting up the redux state store to store the login user state in local storage as cached memory
+// all of this setting information is taken from the documentation of redux-toolkit and redux-persist
+const persistConfig={key: "root", storage, version: 1};
+const persistedReducer= persistReducer(persistConfig,authReducer);
+const store=configureStore({
+  reducer: persistedReducer,
+  middleware:(getDefaultMiddleware)=>getDefaultMiddleware({
+    serializableCheck:{
+      ignoredActions: [FLUSH,REHYDRATE,PAUSE,PERSIST,REGISTER,PURGE],
+    },
+  }),
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistStore(store)}>
+        <App />
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
