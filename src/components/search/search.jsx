@@ -22,13 +22,13 @@ const Search = () => {
 
   return (
     <div>
-      <div id="conatiner">
+     
         <div class="top-search  clearfix">
           <h3 class="head-pet">
             <span>Recipe Search</span>
           </h3>
 
-          <div action="#" id="searchform">
+          <form action="#" id="searchform">
             <p style={{ display: "flex" }}>
               <Button class="field" onClick={handleOpen}>
                 Search for ...
@@ -48,10 +48,10 @@ const Search = () => {
               </Modal>
               <input type="button" name="s_submit" id="s-submit" value="" onClick={handleOpen} />
             </p>
-          </div>
+          </form>
         </div>
       </div>
-    </div>
+
   );
 };
 

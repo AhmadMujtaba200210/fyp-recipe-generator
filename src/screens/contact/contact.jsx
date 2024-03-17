@@ -9,13 +9,10 @@ import Address from "../../components/address/Address";
 const Contact = () => {
   return (
     <div>
-      {" "}
       <NavigationBar />
       <div class="main-wrap">
         <div id="container">
-          <div class="top-search  clearfix">
-            <Search />
-          </div>
+          <Search />
 
           <div id="content" class="clearfix ">
             <div id="left-area" class="clearfix">
@@ -30,7 +27,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div class="w-pet-border"></div>
       <Footer />
     </div>
   );

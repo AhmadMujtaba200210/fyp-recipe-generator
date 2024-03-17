@@ -7,21 +7,17 @@ import { NewsEvents } from "../../components/news-events/NewsEvents";
 import Cusine from "../../components/cusines/Cusine";
 import VerticalListing from "../../components/vertical-listing/VerticalListing";
 
- const Listing = () => {
+const Listing = () => {
   return (
     <div>
+      <NavigationBar />
       <div class="main-wrap">
-        <NavigationBar />
         <div id="container">
-          <div class="top-search  clearfix">
-            <Search />
-          </div>
+          <Search />
 
           <div id="content" class="clearfix ">
             <div id="left-area" class="clearfix">
-             <VerticalListing />
-
-            
+              <VerticalListing />
             </div>
 
             <div id="sidebar">
@@ -41,4 +37,4 @@ import VerticalListing from "../../components/vertical-listing/VerticalListing";
   );
 };
 
-export default Listing
+export default Listing;

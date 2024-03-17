@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../../shared/navigationbar.css";
 import { getRecipes } from "../../server/requests";
-import Details from "../../screens/recipe/Details";
 import { Link } from "react-router-dom";
-import { key } from "localforage";
+
 
 const VerticalListing = () => {
   const [recipes, setRecipes] = useState([]);

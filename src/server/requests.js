@@ -33,6 +33,13 @@ export const getRecipesRandom = async (random) => {
     }
 
 }
+export const getRecentRecipes = async () => {
+    try {
+         return await axios.get(`http://localhost:8080/api/v1/recipe/recent`)
+    } catch (error) {
+        throw error;
+    }
+}
 export const getNewsRandom = async (random) => {
     try {
          return await axios.get(`http://localhost:8080/api/v1/news/hot/${random}`)

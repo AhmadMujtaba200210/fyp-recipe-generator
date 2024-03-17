@@ -30,9 +30,9 @@ const Details = () => {
   if (!details) return null;
   return (
     <div>
+       <NavigationBar />
       <div class="main-wrap">
-
-        <NavigationBar />
+       
         <div id="container">
           <div id="content" class="clearfix ">
             <div

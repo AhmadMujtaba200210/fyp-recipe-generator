@@ -34,6 +34,20 @@ const ContactForm = () => {
           />
         </p>
         <p>
+          <input
+            type="text"
+            id="cemail"
+            name="email"
+            class="email"
+            data-rule-required="true"
+            data-rule-email="true"
+            data-msg-required="Please enter your email address"
+            data-msg-email="Please enter a valid email address"
+            aria-required="true"
+            placeholder="Ingredients"
+          />
+        </p>
+        <p>
           <textarea
             name="message"
             id="cmessage"
@@ -42,8 +56,7 @@ const ContactForm = () => {
             cols="30"
             rows="6"
             placeholder="Message here"
-          >
-          </textarea>
+          ></textarea>
         </p>
         <p>
           <input type="hidden" name="action" value="send_message" />
@@ -59,9 +72,6 @@ const ContactForm = () => {
         </p>
         <p id="message-sent"></p>
         <div id="search-error-container"> </div>
-        <p>
-          <span class="w-pet-border"></span>
-        </p>
       </form>
     </div>
   );

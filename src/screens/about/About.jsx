@@ -7,27 +7,26 @@ import WeeklySpecial from "../../components/weekly-special/WeeklySpecial";
 import Footer from "../../components/footer/Footer";
 export const About = () => {
   return (
-    <div class="main-wrap">
+    <div>
       <NavigationBar />
-      <div id="container">
-        <div class="top-search  clearfix">
+      <div class="main-wrap">
+        <div id="container">
           <Search />
-        </div>
+          <div id="content" class="clearfix ">
+            <div id="left-area" class="clearfix">
+              <AboutContent />
+            </div>
 
-        <div id="content" class="clearfix ">
-          <div id="left-area" class="clearfix">
-            <AboutContent />
+            <div id="sidebar">
+              <MiscRecipes />
+
+              <WeeklySpecial />
+            </div>
           </div>
-
-          <div id="sidebar">
-            <MiscRecipes />
-
-            <WeeklySpecial />
-          </div>
         </div>
+        <div class="w-pet-border"></div>
+        <Footer />
       </div>
-      <div class="w-pet-border"></div>
-      <Footer />
     </div>
   );
 };

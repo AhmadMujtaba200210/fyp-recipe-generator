@@ -17,7 +17,6 @@ export const NavigationBar = () => {
         </a>
       </div>
 
-      <span class="w-pet-border"></span>
       <div id="nav-wrap">
         <div class="inn-nav clearfix">
           <ul id="menu-main-navigation" class="nav">
@@ -39,8 +38,8 @@ export const NavigationBar = () => {
             <li>
               <Link to={`/community`}>Communtiy</Link>
             </li>
-            <li>
-              <Link to={`/testing`}>testing</Link>
+            <li className="login-icon" style={{ float: 'right' }}>
+              <Link to={`/login`}>Login</Link>
             </li>
           </ul>
           <ul id="menu-social-menu" class="social-nav">
