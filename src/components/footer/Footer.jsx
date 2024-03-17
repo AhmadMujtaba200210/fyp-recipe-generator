@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../shared/navigationbar.css";
-import footerlogo from "../../assets/images/footer-logo.png";
+import footerlogo from "../../assets/images/footer-pixel.png";
 import { getRecentRecipes } from "../../server/requests";
 import { Link } from "react-router-dom";
 
@@ -54,7 +54,7 @@ const Footer = () => {
                     />
                   </a>
                   <h5>
-                    <a href="recipe-single-1.html">{recipe.title}</a>
+                  <Link to={`/recipe/${recipe.recipeId}`}>{recipe.title}</Link>
                   </h5>
                   <p style={{ paddingTop: "1px" }}>
                     {recipe.ingredients.slice(0, 60)}...

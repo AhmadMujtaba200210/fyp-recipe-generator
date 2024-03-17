@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getRecipes = async (page) => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/recipe?page=${page}`)
+         return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe?page=${page}`)
     } catch (error) {
         throw error;
     }
@@ -10,7 +10,7 @@ export const getRecipes = async (page) => {
 }
 export const getNews = async (page) => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/news?page=${page}`)
+         return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/news?page=${page}`)
     } catch (error) {
         throw error;
     }
@@ -18,7 +18,7 @@ export const getNews = async (page) => {
 }
 export const getBlogs = async (page) => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/blog?page=${page}`)
+         return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/blog?page=${page}`)
     } catch (error) {
         throw error;
     }
@@ -27,7 +27,7 @@ export const getBlogs = async (page) => {
 
 export const getRecipesRandom = async (random) => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/recipe/hot/${random}`)
+         return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe/hot/${random}`)
     } catch (error) {
         throw error;
     }
@@ -35,14 +35,14 @@ export const getRecipesRandom = async (random) => {
 }
 export const getRecentRecipes = async () => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/recipe/recent`)
+         return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe/recent`)
     } catch (error) {
         throw error;
     }
 }
 export const getNewsRandom = async (random) => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/news/hot/${random}`)
+         return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/news/hot/${random}`)
     } catch (error) {
         throw error;
     }
@@ -50,7 +50,7 @@ export const getNewsRandom = async (random) => {
 }
 export const getBlogRandom = async (random) => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/blog/hot/${random}`)
+         return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/blog/hot/${random}`)
     } catch (error) {
         throw error;
     }
@@ -59,7 +59,7 @@ export const getBlogRandom = async (random) => {
 
 export const getWeeklySpecial = async () => {
     try {
-         return await axios.get(`http://localhost:8080/api/v1/recipe/special`)
+         return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe/special`)
     } catch (error) {
         throw error;
     }
@@ -68,7 +68,7 @@ export const getWeeklySpecial = async () => {
 
 export const getRecipeDetails=async (id)=>{
     try {
-        return await axios.get(`http://localhost:8080/api/v1/recipe/id/${id}`)
+        return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe/id/${id}`)
     } catch (error) {
         throw error;
     }

@@ -1,19 +1,21 @@
 import React from "react";
 import "../shared/navigationbar.css";
 import { Link } from "react-router-dom";
-import img from '../assets/images/header-image.png'
-import imgLogo from '../assets/images/logo.png'
+import img from "../assets/images/header-image.png";
+import imgLogo from "../assets/images/logo-pixel.png";
 
 export const NavigationBar = () => {
   return (
-    <div id="header-wrapper" class="clearfix">
+    <div id="header-wrapper" class="clearfix98">
       <div id="header" class="clearfix">
-        <a class="responsive_logo" href="index.html"><img src={imgLogo} alt="" class="logo" /></a>
-        <a href="index.html"><h1 class="sitenametext">Food Recipes</h1></a>
+        <a class="responsive_logo" href="index.html">
+          <img src={imgLogo} alt="" class="logo" />
+        </a>
         <a href="index.html">
-          <img
-            class="header-img" src={img}alt="Food Recipes"
-          />
+          <h1 class="sitenametext">Food Recipes</h1>
+        </a>
+        <a href="index.html">
+          <img class="header-img" src={img} alt="Food Recipes" />
         </a>
       </div>
 
@@ -38,7 +40,7 @@ export const NavigationBar = () => {
             <li>
               <Link to={`/community`}>Communtiy</Link>
             </li>
-            <li className="login-icon" style={{ float: 'right' }}>
+            <li className="login-icon" style={{ float: "right" }}>
               <Link to={`/login`}>Login</Link>
             </li>
           </ul>

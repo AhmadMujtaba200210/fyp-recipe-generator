@@ -22,36 +22,42 @@ const Search = () => {
 
   return (
     <div>
-     
-        <div class="top-search  clearfix">
-          <h3 class="head-pet">
-            <span>Recipe Search</span>
-          </h3>
+      <div class="top-search  clearfix">
+        <h3 class="head-pet">
+          <span>Recipe Search</span>
+        </h3>
 
-          <form action="#" id="searchform">
-            <p style={{ display: "flex" }}>
-              <Button class="field" onClick={handleOpen}>
-                Search for ...
-                {/* <SearchBarModel/> */}
-              </Button>
-              <Modal
-                keepMounted
-                open={open}
-                onClose={handleClose}
-                // aria-labelledby="keep-mounted-modal-title"
-                // aria-describedby="keep-mounted-modal-description"
-                // disableEnforceFocus={false}
-              >
-                <AppContainer>
-                  <SearchBar />
-                </AppContainer>
-              </Modal>
-              <input type="button" name="s_submit" id="s-submit" value="" onClick={handleOpen} />
-            </p>
-          </form>
-        </div>
+        <form action="#" id="searchform">
+          <p style={{ display: "flex" }}>
+            <Button class="field" onClick={handleOpen} style={{ textAlign: "start",paddingLeft:"2em" 
+            }}>
+              Search for ...
+              {/* <SearchBarModel/> */}
+            </Button>
+            <Modal
+              keepMounted
+              open={open}
+              onClose={handleClose}
+
+              // aria-labelledby="keep-mounted-modal-title"
+              // aria-describedby="keep-mounted-modal-description"
+              // disableEnforceFocus={false}
+            >
+              <AppContainer>
+                <SearchBar />
+              </AppContainer>
+            </Modal>
+            <input
+              type="button"
+              name="s_submit"
+              id="s-submit"
+              // value=""
+              onClick={handleOpen}
+            />
+          </p>
+        </form>
       </div>
-
+    </div>
   );
 };
 

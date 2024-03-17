@@ -5,7 +5,7 @@ export const RecipeSlider = (props) => {
     <div>
       <h1 class="title fn" itemprop="name">
         {/* title here */}
-        Pesto Pizza With Roasted Garlic & Potato
+        {props.title}
       </h1>
       {/* published date here */}
       <span class="published">2013-02-06</span>
@@ -25,6 +25,7 @@ export const RecipeSlider = (props) => {
           class="single-slider cycle-slideshow "
           data-cycle-pager=".cycle-pager"
         >
+          {/* image here */}
           <img itemprop="image" src={{}} alt="" />
         </div>
         <div class="img-nav cycle-pager"></div>
