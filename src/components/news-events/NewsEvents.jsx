@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../../shared/navigationbar.css";
-import { getNewsRandom } from "../../server/requests"; // Update this path
 
 export const NewsEvents = () => {
   const [news, setNews] = useState([]);
@@ -9,7 +8,8 @@ export const NewsEvents = () => {
     const fetchNews = async () => {
       try {
         const response = await getNewsRandom(2);
-        setNews(response.data);
+        const data = await response.json();
+        setNews(data);
       } catch (error) {
         console.error("Error fetching news:", error);
       }
@@ -32,7 +32,7 @@ export const NewsEvents = () => {
               </h5>
               <p>
                 {item.description.slice(0, 100)}...{/* Displaying first 100 characters, adjust as needed */}
-                <a href={`single.html`} onClick={{}}>more</a>
+                <a href={`single.html`} onClick={() => {}}>more</a>
               </p>
             </li>
           ))}
@@ -41,3 +41,15 @@ export const NewsEvents = () => {
     </div>
   );
 };
+
+export const getNewsRandom = async (random) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/news/hot/${random}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}

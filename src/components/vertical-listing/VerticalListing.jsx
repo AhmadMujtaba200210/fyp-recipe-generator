@@ -9,16 +9,24 @@ const VerticalListing = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const fetchRecipes = async (page) => {
-    try {
-      const response = await getRecipes(page);
-      setRecipes(response.data.content);
-      setCurrentPage(response.data.pageable.pageNumber);
-      setTotalPages(response.data.totalPages);
-    } catch (error) {
-      console.error("Error fetching recipes:", error);
-    }
+  const fetchRecipes = (page) => {
+    fetch(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe?page=${page}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setRecipes(data.content);
+        setCurrentPage(data.pageable.pageNumber);
+        setTotalPages(data.totalPages);
+      })
+      .catch(error => {
+        console.error('Error fetching recipes:', error);
+      });
   };
+  
 
   useEffect(() => {
     fetchRecipes(currentPage);

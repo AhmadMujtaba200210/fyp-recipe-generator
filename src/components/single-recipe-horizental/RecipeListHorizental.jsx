@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../shared/navigationbar.css";
-import { getRecipesRandom } from "../../server/requests" ; 
 import { Link } from "react-router-dom";
 
-console.log(process.env)
 const RecipeListHorizental = () => {
   const [recipes, setRecipes] = useState([]);
 
@@ -11,7 +9,8 @@ const RecipeListHorizental = () => {
     const fetchRecipes = async () => {
       try {
         const response = await getRecipesRandom(4);
-        setRecipes(response.data);
+        const data = await response.json();
+        setRecipes(data);
       } catch (error) {
         console.error("Error fetching recipes:", error);
       }
@@ -45,3 +44,15 @@ const RecipeListHorizental = () => {
 };
 
 export default RecipeListHorizental;
+
+export const getRecipesRandom = async (random) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe/hot/${random}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};

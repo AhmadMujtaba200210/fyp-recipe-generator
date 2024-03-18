@@ -57,7 +57,7 @@ const LoginForm = () => {
     };
   
     const registerResponse = await fetch(
-      `${process.env.REACT_APP_API_BASE_URL}/api/v1/auth/register`,
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/auth/register`,
       {
         method: "POST",
         headers: {
@@ -79,7 +79,7 @@ const LoginForm = () => {
   const login = async (values, onSubmitProps) => {
     console.log(values);
     const loggedInResponse = await fetch(
-      "http://localhost:8080/api/v1/auth/login",
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/auth/login`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

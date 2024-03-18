@@ -9,54 +9,53 @@ import { NewsEvents } from "../../components/news-events/NewsEvents";
 import Footer from "../../components/footer/Footer";
 
 import { useParams } from "react-router";
-import { getRecipeDetails } from "../../server/requests";
 import { RecipeSlider } from "../../components/slider/RecipeSlider";
-
 const Details = () => {
   const [details, setDetails] = useState(null);
-  const {recipe_id} = useParams();
-  const getDetails = async (id) => {
-    try {
-      const response = await getRecipeDetails(id);
-      setDetails(response.data);
-    } catch (error) {
-      console.error("Error fetching recipe details:", error);
-    }
-  };
+  const { recipe_id } = useParams();
 
-  useEffect(() => {    
+  useEffect(() => {
+    const getDetails = async (id) => {
+      try {
+        const response = await getRecipeDetails(id);
+        const data = await response.json();
+        setDetails(data);
+      } catch (error) {
+        console.error("Error fetching recipe details:", error);
+      }
+    };
+
     getDetails(recipe_id);
-  },[]);
+  }, [recipe_id]);
+
   if (!details) return null;
+
   return (
     <div>
-       <NavigationBar />
-      <div class="main-wrap">
-       
+      <NavigationBar />
+      <div className="main-wrap">
         <div id="container">
-          <div id="content" class="clearfix ">
+          <div id="content" className="clearfix">
             <div
               id="left-area"
-              class="clearfix"
+              className="clearfix"
               itemscope
               itemtype="http://schema.org/Recipe"
             >
               {/* Slider here */}
-              <RecipeSlider {
-                ...details
-              }/>
-              <span class="w-pet-border"></span>
+              <RecipeSlider {...details} />
+              <span className="w-pet-border"></span>
 
-              <div class="info-left instructions">
+              <div className="info-left instructions">
                 <div itemprop="description">
                   <RecipeIngredients ingredients={details.ingredients} />
-                  <h3 class="blue">Method</h3>
+                  <h3 className="blue">Method</h3>
                   <RecipeInstructions instructions={details.instructions} />
                   <p>&nbsp;</p>
                 </div>
               </div>
               {/* Right panel */}
-              <div class="info-right">
+              <div className="info-right">
                 {/* Author */}
 
                 {/* RateBox */}
@@ -64,7 +63,7 @@ const Details = () => {
                 {/* NutritionalBox */}
               </div>
 
-              <span class="w-pet-border"></span>
+              <span className="w-pet-border"></span>
               {/* Comment Box */}
             </div>
 
@@ -84,3 +83,15 @@ const Details = () => {
 };
 
 export default Details;
+
+export const getRecipeDetails = async (id) => {
+  try {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe/id/${id}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
