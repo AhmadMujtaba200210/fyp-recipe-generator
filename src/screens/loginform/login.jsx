@@ -12,12 +12,15 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { setLogin } from "../../state";
+import { Snackbar } from "@mui/material";
+import MuiAlert from "@mui/material/Alert"
 
 const LoginForm = () => {
   const [pageType, setPageType] = useState("login");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [snackbarOpen, setSnackbarOpen] = useState(false); // State to manage Snackbar visibility
+  const [snackbarMessage, setSnackbarMessage] = useState(""); 
   // Accessing Redux state using useSelector
   // const user = useSelector((state) => state.auth.user);
   // const token = useSelector((state) => state.auth.token);
@@ -47,56 +50,68 @@ const LoginForm = () => {
   };
 
   const register = async (values, onSubmitProps) => {
-    const { firstName, lastName, email, password } = values;
-  
-    const userData = {
-      firstName,
-      lastName,
-      email,
-      password,
-    };
-  
-    const registerResponse = await fetch(
-      `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/auth/register`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
+    try {
+      const { firstName, lastName, email, password } = values;
+    
+      const userData = {
+        firstName,
+        lastName,
+        email,
+        password,
+      };
+    
+      const registerResponse = await fetch(
+        `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/auth/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
+    
+      const savedUser = await registerResponse.json();
+      onSubmitProps.resetForm();
+    
+      console.log(savedUser);
+      if (savedUser) {
+        setPageType("login");
+        setSnackbarMessage("Registration successful!"); // Set success message
+        setSnackbarOpen(true);
       }
-    );
-  
-    const savedUser = await registerResponse.json();
-    onSubmitProps.resetForm();
-  
-    console.log(savedUser);
-    if (savedUser) {
-      setPageType("login");
+    } catch (error) {
+      setSnackbarMessage("Registration failed. Email Already Registered!"); // Set error message
+      setSnackbarOpen(true);
     }
   };
   
   const login = async (values, onSubmitProps) => {
-    console.log(values);
-    const loggedInResponse = await fetch(
-      `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/auth/login`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      }
-    );
-    const loggedIn = await loggedInResponse.json();
-    onSubmitProps.resetForm();
-
-    if (loggedIn) {
-      dispatch(
-        setLogin({
-          user: loggedIn.user,
-          token: loggedIn.token,
-        })
+    try {
+      console.log(values);
+      const loggedInResponse = await fetch(
+        `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/auth/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        }
       );
-      navigate("/community");
+      const loggedIn = await loggedInResponse.json();
+      onSubmitProps.resetForm();
+  
+      if (loggedIn) {
+        dispatch(
+          setLogin({
+            user: loggedIn.user,
+            token: loggedIn.token,
+          })
+        );
+        navigate("/community");
+      }
+    } catch (error) {
+      setSnackbarMessage("Login failed. Please check your credentials."); // Set error message
+      setSnackbarOpen(true);
     }
   };
 
@@ -120,6 +135,20 @@ const LoginForm = () => {
         initial="hidden"
         animate="visible"
       >
+        <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => setSnackbarOpen(false)}
+      >
+        <MuiAlert
+          elevation={6}
+          variant="outlined"
+          // onClose={() => setSnackbarOpen(false)}
+          severity="error" // Change severity as per message type
+        >
+          {snackbarMessage}
+        </MuiAlert>
+      </Snackbar>
         <motion.div
           className={`form-container sign-in`}
           variants={{
