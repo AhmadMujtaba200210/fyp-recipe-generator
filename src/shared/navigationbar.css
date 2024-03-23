@@ -371,7 +371,7 @@ img{
 #header .header-img {
     position: absolute;
     right: 0;
-    bottom: -47px;
+    bottom: -39px;
     z-index: -1;
 }
 
@@ -768,7 +768,7 @@ img{
     padding: 20px 31px 0;
     background: url(/src/assets/images/pettern-gray.png) bottom repeat-x #f7f7f7;
     position: relative;
-    z-index: 601;
+    /* z-index: 601; */
     box-sizing: content-box;
 }
 
@@ -1401,7 +1401,7 @@ img{
 }
 
 .Weekly_Special_Widget .img-box {
-    padding: 5px 5px 0 5px;
+    padding: 5  px 5px 0 5px;
     float: left;
     margin: 0 12px 20px 0 !important;
     border: 1px solid #e3e3e3;
@@ -3897,7 +3897,7 @@ img{
     width: auto;
 }
 #whats-hot.recipe-grid .cat-list li{
-    min-height: 251px;
+    min-height: auto;
 }
 .recipe-grid .rating {
     height: 25px;
@@ -5318,8 +5318,8 @@ html #wpadminbar {
 
     #whats-hot .cat-list li .img-box {
         display: block;
-        width: auto;
-        height: auto;
+        width: 130px;
+        height: 140px;
         background: none;
         border: 1px solid #dddddd;
         padding-bottom: 0;
@@ -5327,7 +5327,7 @@ html #wpadminbar {
     }
 
     #whats-hot .cat-list li .img-box img {
-        width: 323px;
+        width: auto;
     }
     #whats-hot.recipe-grid .cat-list li:nth-child(2n+1){
         clear: left;
@@ -5349,11 +5349,11 @@ html #wpadminbar {
     }
 
     #left-area .recipe-listing-item .single-img-box img {
-        width: 250px;
+        width: 2210px;
     }
 
     #left-area .single-img-box {
-        width: 678px;
+        width: 210px;
     }
 
     #left-area .single-img-box.map_box {
@@ -5367,7 +5367,7 @@ html #wpadminbar {
     }
 
     #left-area .single-img-box img {
-        width: 670px;
+        width: 210px;
     }
 
     #left-area .info-left, #left-area.full-wide .info-left {
@@ -5592,6 +5592,11 @@ html #wpadminbar {
         border: 1px solid green;
         outline: none;
     }
+    .top-search .clearfix{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .top-search h3 {
         float: left;
@@ -5625,9 +5630,9 @@ html #wpadminbar {
     }
 
     .top-search #s-submit {
-        position: absolute;
-        right: 0;
-        top: 0;
+        /* position: absolute; */
+            /* right: 0;
+            top: 0; */
         background: url("../assets/images/search-btn2.png") center no-repeat #5e6063;
         width: 40px;
         height: 32px;
@@ -5687,10 +5692,10 @@ html #wpadminbar {
     }
 
     #whats-hot .cat-list li .img-box img {
-        width: 250px;
+        width: auto;
     }
     #whats-hot.recipe-grid .cat-list li{
-        min-height: 303px;
+        min-height: auto;
     }
     #slider.slider2 .slides {
         height: 300px;
@@ -6014,7 +6019,7 @@ html #wpadminbar {
         text-align: center;
     }
 
-    #nav-wrap .inn-nav .nav {
+    /* #nav-wrap .inn-nav .nav {
         display: none;
     }
 
@@ -6028,7 +6033,7 @@ html #wpadminbar {
 
     #nav-wrap .nav li a {
         padding: 0 6px;
-    }
+    } */
 
     #container {
         width: 95%;
@@ -6149,7 +6154,7 @@ html #wpadminbar {
     }
 
     #whats-hot .cat-list li .img-box {
-        width: 258px;
+        width:130px;
         margin: 0 auto 15px;
     }
 
@@ -6338,7 +6343,7 @@ html #wpadminbar {
     }
 
     #left-area .recipe-listing-item .single-img-box {
-        width: 257px;
+        width: 20px;
         float: none;
         max-width: 99%;
         background: none;
@@ -6348,7 +6353,7 @@ html #wpadminbar {
     }
 
     #left-area .recipe-listing-item .recipe-info {
-        width: 100%;
+        width: 150%;
         text-align: center;
     }
 
@@ -6502,10 +6507,10 @@ html #wpadminbar {
     #header .header-img {
         position: absolute;
         right: 0;
-        bottom: -47px;
-        z-index: -1;
-        opacity: 0.3;
-        max-width: 100%;
+        bottom: -39px;
+        opacity: 0.1;
+        max-width: 90%;
+        /* padding-left: 50px; */
     }
 
     .nivoSlider {
@@ -6572,7 +6577,7 @@ html #wpadminbar {
     }
 
     #left-area .recipe-listing-item .single-img-box {
-        width: 257px;
+        width: 350px;
         float: none;
         max-width: 99%;
         background: none;
@@ -7187,11 +7192,11 @@ html #wpadminbar {
 
 @media screen and (max-width: 325px) {
     #whats-hot .cat-list li .img-box {
-        width: 99%;
+        width: 130px;;
     }
 
     #whats-hot .cat-list li .img-box img {
-        width: 98%;
+        width: 130px;
         padding: 1%;
     }
 

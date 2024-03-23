@@ -14,8 +14,7 @@ import { Recipe } from "./RecipeSearchList";
 const SearchBarContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  width:45em;
-  height: 3.8em;
+  width: 70%;
   background-color: #fff;
   border-radius: 6px;
   box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.14);
@@ -27,17 +26,17 @@ const SearchInputContainer = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  padding:0px 15px;
+  padding: 0px 15px;
 `;
 
 const SearchInput = styled.input`
-  width: 100%;
+  flex: 1;
   height: 100%;
   outline: none;
   border: none;
-  font-size: 21px;
+  font-size: 16px; /* Adjust font size for mobile */
   color: #12112e;
-  font-weight: 500;
+  font-weight: 100;
   border-radius: 6px;
   background-color: transparent;
 
@@ -56,37 +55,37 @@ const SearchInput = styled.input`
 
 const SearchIcon = styled.span`
   color: #bebebe;
-  font-size: 27px;
+  font-size: 20px; /* Adjust icon size for mobile */
   margin-right: 10px;
-  margin-top:1px;
+  margin-top: 1px;
   vertical-align: middle;
 `;
 
 const CloseIcon = styled(motion.span)`
   color: #bebebe;
-  font-size: 23px;
+  font-size: 18px; /* Adjust close icon size for mobile */
   vertical-align: middle;
   transition: all 200ms ease-in-out;
   cursor: pointer;
-  padding-right:20px;
+  padding-right: 20px;
   &:hover {
     color: #dfdfdf;
   }
 `;
 
-const LineSeperator = styled.span`
+const LineSeparator = styled.span`
   display: flex;
-  min-width: 100%;
+  min-width: 70%;
   min-height: 2px;
   background-color: #d8d8d878;
 `;
 
 const SearchContent = styled.div`
-  width: 100%;
+  width:100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  
   overflow-y: auto;
 `;
 
@@ -100,7 +99,7 @@ const LoadingWrapper = styled.div`
 
 const WarningMessage = styled.span`
   color: #a1a1a1;
-  font-size: 14px;
+  font-size: 10px;
   display: flex;
   align-self: center;
   justify-self: center;
@@ -123,15 +122,12 @@ export function SearchBar(props) {
   const inputRef = useRef();
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setLoading] = useState(false);
-  const [recipes, setTvShows] = useState([]);
-  const [noTvShows, setNoTvShows] = useState(false);
-
-  const isEmpty = !recipes || recipes.length === 0;
+  const [recipes, setRecipes] = useState([]);
+  const [noRecipes, setNoRecipes] = useState(false);
 
   const changeHandler = (e) => {
     e.preventDefault();
-    if (e.target.value.trim() === "") setNoTvShows(false);
-
+    if (e.target.value.trim() === "") setNoRecipes(false);
     setSearchQuery(e.target.value);
   };
 
@@ -143,8 +139,8 @@ export function SearchBar(props) {
     setExpanded(false);
     setSearchQuery("");
     setLoading(false);
-    setNoTvShows(false);
-    setTvShows([]);
+    setNoRecipes(false);
+    setRecipes([]);
     if (inputRef.current) inputRef.current.value = "";
   };
 
@@ -154,7 +150,6 @@ export function SearchBar(props) {
 
   const prepareSearchQuery = (query) => {
     const url = `http://api.tvmaze.com/search/shows?q=${query}`;
-
     return encodeURI(url);
   };
 
@@ -162,19 +157,16 @@ export function SearchBar(props) {
     if (!searchQuery || searchQuery.trim() === "") return;
 
     setLoading(true);
-    setNoTvShows(false);
+    setNoRecipes(false);
 
     const URL = prepareSearchQuery(searchQuery);
 
-    const response = await axios.get(URL).catch((err) => {
-      console.log("Error: ", err);
-    });
-
-    if (response) {
-      console.log("Response: ", response.data);
-      if (response.data && response.data.length === 0) setNoTvShows(true);
-
-      setTvShows(response.data);
+    try {
+      const response = await axios.get(URL);
+      if (response.data && response.data.length === 0) setNoRecipes(true);
+      setRecipes(response.data);
+    } catch (error) {
+      console.log("Error: ", error);
     }
 
     setLoading(false);
@@ -215,7 +207,7 @@ export function SearchBar(props) {
           )}
         </AnimatePresence>
       </SearchInputContainer>
-      {isExpanded && <LineSeperator />}
+      {isExpanded && <LineSeparator />}
       {isExpanded && (
         <SearchContent>
           {isLoading && (
@@ -223,28 +215,26 @@ export function SearchBar(props) {
               <MoonLoader loading color="#000" size={20} />
             </LoadingWrapper>
           )}
-          {!isLoading && isEmpty && !noTvShows && (
+          {!isLoading && recipes.length === 0 && !noRecipes && (
             <LoadingWrapper>
               <WarningMessage>Start typing to Search</WarningMessage>
             </LoadingWrapper>
           )}
-          {!isLoading && noTvShows && (
+          {!isLoading && noRecipes && (
             <LoadingWrapper>
               <WarningMessage>No Recipes or Blogs found!</WarningMessage>
             </LoadingWrapper>
           )}
-          {!isLoading && !isEmpty && (
-            <>
-              {recipes.map(({ show }) => (
-                <Recipe
-                  key={show.id}
-                  thumbanilSrc={show.image && show.image.medium}
-                  name={show.name}
-                  rating={show.rating && show.rating.average}
-                />
-              ))}
-            </>
-          )}
+          {!isLoading &&
+            recipes.length > 0 &&
+            recipes.map(({ show }) => (
+              <Recipe
+                key={show.id}
+                thumbanilSrc={show.image && show.image.medium}
+                name={show.name}
+                rating={show.rating && show.rating.average}
+              />
+            ))}
         </SearchContent>
       )}
     </SearchBarContainer>
