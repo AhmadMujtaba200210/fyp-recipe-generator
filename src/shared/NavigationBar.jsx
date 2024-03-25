@@ -31,10 +31,9 @@ export const NavigationBar = () => {
           <img src={imgLogo} alt="" class="logo" />
         </Link>
         <Link to={`/`}>
-        <img class="header-img" src={img} alt="Food Recipes" />
+          <img class="header-img" src={img} alt="Food Recipes" />
         </Link>
-        <a href="index.html">
-        </a>
+        <a href="index.html"></a>
       </div>
 
       {/* navbar from here */}
@@ -59,6 +58,9 @@ export const NavigationBar = () => {
               </li>
               <li>
                 <Link to={`/community`}>Communtiy</Link>
+              </li>
+              <li>
+                <Link to={`/ai`}>LLM</Link>
               </li>
               <li className="login-icon" style={{ float: "right" }}>
                 <Link to={`/login`}>Login</Link>
