@@ -95,6 +95,9 @@ export const NavigationBar = () => {
               <li>
                 <Link to={`/community`}>Communtiy</Link>
               </li>
+              <li>
+                <Link to={`/ai`}>LLM</Link>
+              </li>
               <li className="login-icon" style={{ float: "right" }}>
                 <Link to={`/login`}>Login</Link>
               </li>
