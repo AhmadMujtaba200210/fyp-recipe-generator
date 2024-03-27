@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import CloseIcon from "@mui/icons-material/Close";
-import imagefile from "../../assets/images/images (2).png";
+import imagefile from "../../assets/images/gallery_6932418.png";
 import { Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
 
