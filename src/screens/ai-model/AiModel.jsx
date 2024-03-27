@@ -19,7 +19,6 @@ const AiModel = () => {
           <div id="content" class="clearfix ">
             <div id="left-area" class="clearfix">
              <ImageDropzone/>
-             <RecipeChip/>
             </div>
 
             <div id="sidebar">
