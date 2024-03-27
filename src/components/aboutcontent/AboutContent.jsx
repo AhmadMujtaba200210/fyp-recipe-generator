@@ -3,9 +3,8 @@ import React from "react";
 export const AboutContent = () => {
   return (
     <div>
-      AboutContent
       <div class="post-34 page type-page status-publish hentry" id="page-34">
-        <h1 class="post-title">About</h1>
+        <h1 class="post-title">About us</h1>
         <p class="meta">
           <span class="comments">
             <span>Comments Off</span>
@@ -13,49 +12,63 @@ export const AboutContent = () => {
           <span>|</span> <span> March 6, 2012</span>
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-          molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-          vero eros et accumsan et iusto odio dignissim qui blandit praesent
-          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+          At PixelCuisine, we're on a mission to revolutionize the culinary
+          landscape by seamlessly integrating cutting-edge technology with the
+          art of cooking. Our platform is designed to offer a personalized,
+          interactive, and hassle-free culinary experience for enthusiasts
+          worldwide.
         </p>
+        <h3>Mission Statement</h3>
         <p>
-          Nam liber tempor cum soluta nobis eleifend option congue nihil
-          imperdiet doming id quod mazim placerat facer possim assum. Typi non
-          habent claritatem insitam; est usus legentis in iis qui facit eorum
-          claritatem. Investigationes demonstraverunt lectores legere me lius
-          quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
-          sequitur mutationem consuetudium lectorum. Mirum est notare quam
-          littera gothica, quam nunc putamus parum claram, anteposuerit
-          litterarum formas humanitatis per seacula quarta decima et quinta
-          decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant
-          sollemnes in futurum.
+          Our mission is simple yet ambitious: to empower individuals to explore
+          their culinary creativity with confidence, while leveraging the power
+          of artificial intelligence to simplify and enhance every step of the
+          cooking journey.
         </p>
-        <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h3>
+        <h3>Core Values</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-          molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-          vero eros et accumsan et iusto odio dignissim qui blandit praesent
-          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+          <h5>1. Innovation:</h5> We're committed to pushing the boundaries of
+          what's possible in the world of cooking through continuous innovation
+          and exploration of new technologies.<h5>2. Personalization:</h5> We
+          believe that every individual's culinary journey is unique. That's why
+          we prioritize personalization, ensuring that each user receives
+          tailored recommendations and assistance based on their preferences and
+          dietary needs.<h5>3. Accessibility:</h5> Cooking should be accessible
+          to all. We're dedicated to creating a platform that is user-friendly,
+          inclusive, and welcoming to individuals of all skill levels and
+          backgrounds.
         </p>
+        <h3>Key Offerings</h3>
         <p>
-          Nam liber tempor cum soluta nobis eleifend option congue nihil
-          imperdiet doming id quod mazim placerat facer possim assum. Typi non
-          habent claritatem insitam; est usus legentis in iis qui facit eorum
-          claritatem. Investigationes demonstraverunt lectores legere me lius
-          quod ii legunt saepius. Claritas est etiam processus dynamicus, qui
-          sequitur mutationem consuetudium lectorum. Mirum est notare quam
-          littera gothica, quam nunc putamus parum claram, anteposuerit
-          litterarum formas humanitatis per seacula quarta decima et quinta
-          decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant
-          sollemnes in futurum.
+          <h5>1. Real-time Object Classification:</h5> Experience the
+          convenience of instant ingredient identification with our real-time
+          object recognition feature. Simply point your camera, and watch as
+          ingredients come to life, enabling swift and accurate identification.{" "}
+          <h5>2. Personalized Recipe Recommendations:</h5> Tailor-made recipes
+          are just a click away. Our platform utilizes advanced AI algorithms to
+          recommend a diverse array of recipes based on your unique preferences
+          and culinary interests. <h5>3. Voice-Guided Assistance:</h5> Say
+          goodbye to written recipes and hello to hands-free cooking. With
+          PixelCuisixne, receive concise recipe instructions delivered through
+          voice guidance, providing an intuitive and seamless cooking
+          experience.
+        </p>
+        <h3>Our Achievements</h3>
+        <p>
+          <h5>1. Classification:</h5> We're proud to have been recognized by
+          leading industry experts for our innovative approach to cooking
+          technology. <h5>2. User Satisfaction:</h5> With a growing community of
+          satisfied users worldwide, we continue to receive positive feedback
+          and testimonials highlighting the value and impact of our platform.
+        </p>
+        <h3>In Summary</h3>
+        <p>
+          PixelCuisine represents more than just a platform; it's a culinary
+          journey reimagined. By leveraging technology, personalization, and
+          accessibility, we're empowering individuals to unleash their culinary
+          creativity and embark on a seamless and enriching cooking experience.
+          Join us as we pave the way for the future of cooking, one recipe at a
+          time.
         </p>
       </div>
     </div>

@@ -26,10 +26,16 @@ const Footer = () => {
         <ul id="bottom" className="clearfix">
           <li className="about">
             <a href="about-us.html">
-              <img src={footerlogo} alt="Food Recipes" className="footer-logo" />
+              <img
+                src={footerlogo}
+                alt="Food Recipes"
+                className="footer-logo"
+              />
             </a>
 
-            <p>About Us soon ...</p>
+            <h5>
+              Welcome to PixelCuisine – Where AI Transforms Images into Recipes
+            </h5>
             <Link to="/about" className="readmore">
               Read more About Us
             </Link>
@@ -53,7 +59,9 @@ const Footer = () => {
                     />
                   </Link>
                   <h5>
-                    <Link to={`/recipe/${recipe.recipeId}`}>{recipe.title}</Link>
+                    <Link to={`/recipe/${recipe.recipeId}`}>
+                      {recipe.title}
+                    </Link>
                   </h5>
                   <p style={{ paddingTop: "1px" }}>
                     {recipe.ingredients.slice(0, 60)}...
@@ -72,9 +80,11 @@ export default Footer;
 
 export const getRecentRecipes = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe/recent`);
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe/recent`
+    );
     if (!response.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error("Failed to fetch data");
     }
     return response;
   } catch (error) {
