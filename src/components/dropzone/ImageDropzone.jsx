@@ -7,12 +7,15 @@ import MuiAlert from "@mui/material/Alert";
 
 import RecipeChip from "../chip/RecipeChip";
 import axios from "axios";
+import Spinner from "./Spinner";
 
 const ImageDropzone = ({ className }) => {
   const [files, setFiles] = useState([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false); // State to manage Snackbar visibility
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [responseData, setResponseData] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     if (acceptedFiles?.length) {
       setFiles((previousFiles) => [
@@ -46,7 +49,9 @@ const ImageDropzone = ({ className }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!files?.length) return;
+    if (!files?.length || isSubmitting) return;
+    setIsSubmitting(true);
+
 
     const formData = new FormData();
     files.forEach((file) => formData.append("files", file));
@@ -72,10 +77,16 @@ const ImageDropzone = ({ className }) => {
       setSnackbarMessage(error.message);
       console.error(error);
       setSnackbarOpen(true);
+    }  finally {
+      setIsSubmitting(false);
     }
   };
   return (
     <>
+    {isSubmitting && (
+          <Spinner state={isSubmitting}/>
+        )}
+
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={6000}
