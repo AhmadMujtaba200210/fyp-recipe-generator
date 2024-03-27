@@ -74,6 +74,15 @@ export const getRecipeDetails=async (id)=>{
     }
 }
 
+
+export const getBlogDetails=async (title)=>{
+    try {
+        return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/blog/title/${title}`)
+    } catch (error) {
+        throw error;
+    }
+}
+
 // TODO: complete all the functionlity under here
 export const loginCustomer = async (customer) => {
     try {

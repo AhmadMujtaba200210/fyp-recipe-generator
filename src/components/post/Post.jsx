@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../shared/navigationbar.css";
 import { getBlogs } from "../../server/requests";
+import { Link } from "react-router-dom";
 
 const Post = () => {
   // Assuming these values come from your server or some context
@@ -71,13 +72,7 @@ const Post = () => {
       {posts.map((post) => (
         <div key={post.id} className="post">
           <h1 className="post-title entry-title">
-            <a
-              href="single.html"
-              rel="bookmark"
-              title={`Permanent Link to ${post.title}`}
-            >
-              {post.title}
-            </a>
+          <Link to={`/blog/${post.title}`}>{post.title}</Link>
           </h1>
           <p className="meta vcard">
             {/* By:{" "} */}
@@ -112,9 +107,7 @@ const Post = () => {
             </a>
           </div>
           <p>{post.description.slice(1,500)}...</p>
-          <a href="single.html" className="readmore rightbtn">
-            Read more
-          </a>
+          <Link className="readmore rightbtn" to={`/blog/${post.title}`}>Read more</Link>
         </div>
       ))}
 
