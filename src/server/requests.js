@@ -83,6 +83,15 @@ export const getBlogDetails=async (title)=>{
     }
 }
 
+export const getNewsDetails=async (title)=>{
+    try {
+        return await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/v1/news/title/${title}`)
+    } catch (error) {
+        throw error;
+    }
+}
+
+
 // TODO: complete all the functionlity under here
 export const loginCustomer = async (customer) => {
     try {

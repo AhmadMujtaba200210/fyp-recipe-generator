@@ -10,6 +10,7 @@ import LoginForm from "./screens/loginform/login";
 import NotFound from "./NotFound";
 import AiModel from "./screens/ai-model/AiModel";
 import { SingleBlog } from "./screens/blog/SingleBlog";
+import { SingleNews } from "./screens/news/SingleNews";
 function App() {
   // using useSelector to grab the current logged in state which is stored in localStorage of browser
   // we will grab the tok en from local storage, which will help us to be logged in
@@ -27,6 +28,7 @@ function App() {
           <Route path="/ai" element={<AiModel />} />
           <Route path="/recipe/:recipe_id" element={<Details />} />
           <Route path="/blog/:blog_title" element={<SingleBlog />} />
+          <Route path="/news/:news_title" element={<SingleNews />} />
           <Route path="/login" element={<LoginForm />} />
           <Route
             path="/home"

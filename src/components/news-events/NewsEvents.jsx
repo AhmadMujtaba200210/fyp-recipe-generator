@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../shared/navigationbar.css";
+import { Link } from "react-router-dom";
 
 export const NewsEvents = () => {
   const [news, setNews] = useState([]);
@@ -28,11 +29,11 @@ export const NewsEvents = () => {
           {news.map((item) => (
             <li key={item.id}>
               <h5>
-                <a href={`single.html`}>{item.title}</a>
+              <Link to={`/news/${item.title}`}>{item.title}</Link>
               </h5>
               <p>
                 {item.description.slice(0, 100)}...{/* Displaying first 100 characters, adjust as needed */}
-                <a href={`single.html`} onClick={() => {}}>more</a>
+                <Link to={`/news/${item.title}`}>more</Link>
               </p>
             </li>
           ))}

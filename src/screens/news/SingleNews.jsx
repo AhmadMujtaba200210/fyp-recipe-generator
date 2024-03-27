@@ -5,16 +5,16 @@ import MiscRecipes from "../../components/misc-recipes/MiscRecipes";
 import { NewsEvents } from "../../components/news-events/NewsEvents";
 import Footer from "../../components/footer/Footer";
 import { NavigationBar } from "../../shared/NavigationBar";
-import { getBlogDetails } from "../../server/requests";
+import { getBlogDetails, getNewsDetails } from "../../server/requests";
 
-export const SingleBlog = () => {
+export const SingleNews = () => {
   const [details, setDetails] = useState(null);
-  const { blog_title } = useParams();
+  const { news_title } = useParams();
 
   useEffect(() => {
     const getDetails = async (id) => {
       try {
-        const response = await getBlogDetails(id);
+        const response = await getNewsDetails(id);
         console.log("Response:", response.data);
         const data = await response.data;
         setDetails(data);
@@ -23,8 +23,8 @@ export const SingleBlog = () => {
       }
     };
 
-    getDetails(blog_title);
-  }, [blog_title]);
+    getDetails(news_title);
+  }, [news_title]);
 
   if (!details) return null;
 
