@@ -10,12 +10,12 @@ const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
 }));
 
-export default function RecipeChip({data}) {
+export default function RecipeChip({ data }) {
   const [chipData, setChipData] = React.useState([]);
 
-  React.useEffect(()=>{
-    setChipData(data)
-  },[data])
+  React.useEffect(() => {
+    setChipData(data);
+  }, [data]);
   const handleDelete = (chipToDelete) => () => {
     setChipData((chips) =>
       chips.filter((chip, index) => index !== chipToDelete)
@@ -51,19 +51,16 @@ export default function RecipeChip({data}) {
       >
         {chipData.map((label, index) => (
           <ListItem key={index}>
-            <Chip
-              label={label}
-              onDelete={handleDelete(index)}
-            />
+            <Chip label={label} onDelete={handleDelete(index)} />
           </ListItem>
         ))}
       </Paper>
-      <Box>
+      <Box style={{ display: "flex-wrap" }}>
         <button
           onClick={handleRemoveAllChips}
           className="readmore"
           style={{
-            marginLeft: "auto",
+            //marginLeft: "auto",
             marginTop: "0.125rem",
             cursor: "pointer",
             transition:
@@ -77,7 +74,23 @@ export default function RecipeChip({data}) {
             height: "50px",
           }}
         ></div>
+        <div>
+          <button
+            onClick={handleRemoveAllChips}
+            className="readmore"
+            style={{
+              marginLeft: "24rem",
+              marginTop: "0.125rem",
+              cursor: "pointer",
+              transition:
+                "background-color 0.2s ease-in-out, color 0.2s ease-in-out",
+            }}
+          >
+            Generate Recipe
+          </button>
+        </div>
       </Box>
+      <p>hello there</p>
     </Stack>
   );
 }

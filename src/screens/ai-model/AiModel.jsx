@@ -8,6 +8,7 @@ import Address from "../../components/address/Address";
 import ImageDropzone from "../../components/dropzone/ImageDropzone";
 import RecipeChip from "../../components/chip/RecipeChip";
 
+
 const AiModel = () => {
   return (
     <div>
@@ -18,7 +19,7 @@ const AiModel = () => {
 
           <div id="content" class="clearfix ">
             <div id="left-area" class="clearfix">
-             <ImageDropzone/>
+              <ImageDropzone />
             </div>
 
             <div id="sidebar">
