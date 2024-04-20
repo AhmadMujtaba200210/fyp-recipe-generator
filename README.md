@@ -1,98 +1,82 @@
-# Getting Started with Create React App
+# FYP Recipe Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to FYP Recipe Generator, your go-to tool for discovering and generating delicious recipes!
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+FYP Recipe Generator is a web application developed as a final year project (FYP). It consists of a frontend developed in React and a backend developed in Java Spring Boot. The project aims to assist users in finding recipes based on their dietary preferences, available ingredients, and cooking time constraints.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Recipe Search:** Easily search for recipes by keywords, ingredients, or cuisine types.
+- **Customization:** Filter recipes based on dietary restrictions such as vegetarian, vegan, gluten-free, etc.
+- **Ingredient Matching:** Input the ingredients you have on hand, and the Recipe Generator will suggest recipes that utilize those ingredients.
+- **Cooking Time:** Specify your desired cooking time, and the Recipe Generator will recommend recipes that fit within that timeframe.
+- **Save and Favorite:** Save your favorite recipes for future reference or easy access.
+- **Responsive Design:** Enjoy a seamless user experience across various devices, including desktops, tablets, and smartphones.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+To get started with FYP Recipe Generator, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repository to your local machine:
 
 
-what if packages deprecateed?
+2. Navigate to the project directory:
 
-If you want to automatically update all deprecated packages to their latest versions without manually replacing each package name, you can use the `npm-check-updates` (ncu) tool. This tool allows you to upgrade your package.json dependencies to their latest versions.
 
-First, install `npm-check-updates` globally:
+3. **Frontend Setup:**
+   - Navigate to the `frontend` directory:
+     ```
+     cd frontend
+     ```
+   - Install frontend dependencies:
+     ```
+     npm install
+     ```
+   - Start the frontend server:
+     ```
+     npm start
+     ```
 
-```bash
-npm install -g npm-check-updates
-```
+4. **Backend Setup:**
+   - Navigate to the `backend` directory:
+     ```
+     cd backend
+     ```
+   - Install backend dependencies (assuming Maven is installed):
+     ```
+     mvn clean install
+     ```
+   - Start the backend server:
+     ```
+     java -jar target/your-backend-jar-file.jar
+     ```
 
-Then, you can use the following commands to update all deprecated packages:
+5. Open your web browser and visit `http://localhost:3000` to view the application.
 
-```bash
-# Check for outdated packages
-ncu
+## Docker Setup
 
-# Upgrade package.json with the latest versions (including deprecated packages)
-ncu -u
+To run the application using Docker, follow these steps:
 
-# Install the updated packages
-npm install
-```
+1. Make sure Docker is installed on your machine.
 
-The `ncu` command without the `-u` flag will only show you a list of outdated packages. The `-u` flag updates your `package.json` file with the latest versions. After updating the `package.json`, you can run `npm install` to install the new package versions.
+2. Build the Docker images:
 
-Keep in mind that upgrading all packages automatically may introduce breaking changes, so it's crucial to test your application thoroughly after running these commands. Additionally, make sure to commit your changes to version control before updating dependencies.
+
+3. Start the Docker containers:
+
+
+4. Access the application at `http://localhost:3000`.
+
+## Usage
+
+Once the application is up and running, you can start exploring recipes by performing searches, filtering by dietary preferences, and inputting your available ingredients. Follow the on-screen instructions to generate recipes, save your favorites, and enjoy cooking delicious meals!
+
+## Contributing
+
+Contributions to FYP Recipe Generator are welcome! If you have ideas for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request. For major changes, please discuss them with the project maintainers first.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
