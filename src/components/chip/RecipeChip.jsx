@@ -13,7 +13,7 @@ const ListItem = styled("li")(({ theme }) => ({
 export default function RecipeChip({data}) {
   const [chipData, setChipData] = React.useState([]);
 
-  React.useEffect(()=>{
+  React.useEffect((data)=>{
     setChipData(data)
   },[data])
   const handleDelete = (chipToDelete) => () => {
