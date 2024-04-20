@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../shared/navigationbar.css";
-import "../shared/Navbar.css";
+import "./navigationbar.css";
+import "./Navbar.css";
 import { Link } from "react-router-dom";
 import img from "../assets/images/header-image.png";
 import imgLogo from "../assets/images/logo-pixel.png";
