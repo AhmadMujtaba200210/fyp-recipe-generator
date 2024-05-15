@@ -4,14 +4,13 @@ import CloseIcon from "@mui/icons-material/Close";
 import imagefile from "../../assets/images/gallery_6932418.png";
 import { Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
-
 import RecipeChip from "../chip/RecipeChip";
 import axios from "axios";
 import Spinner from "./Spinner";
 
 const ImageDropzone = ({ className }) => {
   const [files, setFiles] = useState([]);
-  const [snackbarOpen, setSnackbarOpen] = useState(false); // State to manage Snackbar visibility
+  const [snackbarOpen, setSnackbarOpen] = useState(false); 
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [responseData, setResponseData] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -52,7 +51,6 @@ const ImageDropzone = ({ className }) => {
     if (!files?.length || isSubmitting) return;
     setIsSubmitting(true);
 
-
     const formData = new FormData();
     files.forEach((file) => formData.append("files", file));
     // formData.append("upload_preset", "friendsbook");
@@ -61,10 +59,10 @@ const ImageDropzone = ({ className }) => {
     try {
       const response = await axios.post(URL, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
-          'Access-Control-Allow-Origin': '*', // Adjust this to allow requests from specific origins
-          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-          'Access-Control-Allow-Headers': '*', // Adjust this to allow specific headers if necessary
+          "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "*", // Adjust this to allow requests from specific origins
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+          "Access-Control-Allow-Headers": "*", // Adjust this to allow specific headers if necessary
         },
         crossDomain: true,
       });
@@ -77,15 +75,13 @@ const ImageDropzone = ({ className }) => {
       setSnackbarMessage(error.message);
       console.error(error);
       setSnackbarOpen(true);
-    }  finally {
+    } finally {
       setIsSubmitting(false);
     }
   };
   return (
     <>
-    {isSubmitting && (
-          <Spinner state={isSubmitting}/>
-        )}
+      {isSubmitting && <Spinner state={isSubmitting} />}
 
       <Snackbar
         open={snackbarOpen}
@@ -267,10 +263,10 @@ const ImageDropzone = ({ className }) => {
         </section>
         <div style={{ height: "25px" }}></div>
       </form>
-      <RecipeChip data={responseData}/>
+      {console.log(responseData)}
+      <RecipeChip data={responseData} />
     </>
   );
 };
 
 export default ImageDropzone;
-

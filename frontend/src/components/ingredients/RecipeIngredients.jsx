@@ -1,6 +1,16 @@
 import React from 'react';
 
 const RecipeIngredients = ({ ingredients }) => {
+  // Check if the ingredients array is present and has at least one item
+  if (!ingredients || ingredients.length === 0) {
+    return (
+      <div>
+        <h3 className="blue">Ingredients</h3>
+        <p>LLM is generating Recipe...</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <h3 className="blue">Ingredients</h3>
