@@ -1,0 +1,51 @@
+#spring:
+#  datasource:
+#    username: lfrhbqbzsmtiug
+#    password: 9eafdc6f378ef7ddd895fb874e6d1e49bfa0a74d1882d6d6dcbf3faa6da91c00
+#    url: jdbc:postgresql://ec2-54-156-20-209.compute-1.amazonaws.com:5432/d23r098obmtk2e
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        format_sql: true
+#  banner:
+#    location: banner/banner.txt
+#
+#cors:
+#  allowed-origins: "*"
+#  allowed-methods: "*"
+
+spring:
+  datasource:
+    username: postgres
+    password: 123456789
+    url: jdbc:postgresql://58.65.202.87:5442/fyp-2020
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  banner:
+    location: banner/banner.txt
+
+cors:
+  allowed-origins: "*"
+  allowed-methods: "*"
+server:
+  port: 8080
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
