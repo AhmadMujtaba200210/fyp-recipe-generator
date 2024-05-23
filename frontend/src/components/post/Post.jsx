@@ -72,7 +72,7 @@ const Post = () => {
       {posts.map((post) => (
         <div key={post.id} className="post">
           <h1 className="post-title entry-title">
-          <Link to={`/blog/${post.title}`}>{post.title}</Link>
+            <Link to={`/blog/${post.title}`}>{post.title}</Link>
           </h1>
           <p className="meta vcard">
             {/* By:{" "} */}
@@ -97,17 +97,19 @@ const Post = () => {
               </a>
             </span>
           </p>
-          <div className="post-thumb single-img-box">
+          {/* <div className="post-thumb single-img-box">
             <a rel="prettyPhoto" href="#" title={post.title}>
-              {/* <img
+              <img
                 src={post.image}
                 className="attachment-thumbnail-blog wp-post-image"
                 alt={post.title}
-              /> */}
+              />
             </a>
-          </div>
-          <p>{post.description.slice(1,500)}...</p>
-          <Link className="readmore rightbtn" to={`/blog/${post.title}`}>Read more</Link>
+          </div> */}
+          <p>{post.description.slice(1, 500)}...</p>
+          <Link className="readmore rightbtn" to={`/blog/${post.title}`}>
+            Read more
+          </Link>
         </div>
       ))}
 

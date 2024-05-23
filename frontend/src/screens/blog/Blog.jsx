@@ -17,7 +17,7 @@ export const Blog = () => {
 
           <div id="content" class="clearfix ">
             <div id="left-area" class="clearfix">
-              <Post />
+               <Post />
             </div>
 
             <div id="sidebar">
