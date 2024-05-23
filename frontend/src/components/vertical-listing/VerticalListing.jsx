@@ -79,15 +79,17 @@ const VerticalListing = () => {
       {recipes.map((recipe) => (
         <div
           key={recipe.recipeId}
-          className="post-315 recipe tag-chocolate-2 tag-cointreau recipe-listing-item clearfix"
+          className="post-315 recipe tag-chocolate-2 tag-cointreau recipe-listing-item clearfix post-thumb"
         >
-          <div className="post-thumb single-img-box">
+          <div className="">
+            <div className="ver-img">
           <Link to={`/recipe/${recipe.recipeId}`}>
               <img
-                src={`${process.env.REACT_APP_API_BASE_URL}/get_image_250x212/${recipe.title}.jpg`}
+                src={`${process.env.REACT_APP_API_BASE_URL}/get_image/${recipe.title}.jpg`}
                 alt={recipe.title}
               />
               </Link>
+              </div>
           </div>
           <div className="recipe-info">
             <h2>

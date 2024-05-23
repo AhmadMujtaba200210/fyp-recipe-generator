@@ -21,24 +21,34 @@ const RecipeListHorizental = () => {
 
   return (
     <div>
+      
       <ul className="cat-list clearfix">
         {
         recipes.map((recipe) => (
           <li key={recipe.id}>
-            <Link to={`/recipe/${recipe.recipeId}`} className="img-box">
+            <div
+              className="hor-img"
+              >
+            <Link to={`/recipe/${recipe.recipeId}`} className="">
+              
               <img
-                src={`${process.env.REACT_APP_API_BASE_URL}/get_image_122x132/${recipe.title}.jpg`} // Assuming your API provides an 'image' property
-                className="attachment-recipe-4column-thumb wp-post-image"
+              src={`${process.env.REACT_APP_API_BASE_URL}/get_image/${recipe.title}.jpg`}
+              className="attachment-recipe-4column-thumb wp-post-image"
                 alt={recipe.title}
               />
+              
             </Link>
+            </div>
+            <div className="recipe-heading">
             <h4>
             <Link to={`/recipe/${recipe.recipeId}`}>{recipe.title}</Link>
             </h4>
             <p>{recipe.ingredients.slice(0,100)}...</p>
+            </div>
           </li>
         ))}
       </ul>
+      
     </div>
   );
 };

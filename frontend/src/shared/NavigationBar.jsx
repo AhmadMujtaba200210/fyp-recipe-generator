@@ -56,9 +56,9 @@ export const NavigationBar = () => {
               <li>
                 <Link to={`/contact`}>Contact</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={`/community`}>Communtiy</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={`/ai`}>LLM</Link>
               </li>
@@ -92,9 +92,9 @@ export const NavigationBar = () => {
               <li>
                 <Link to={`/contact`}>Contact</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={`/community`}>Communtiy</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={`/ai`}>LLM</Link>
               </li>

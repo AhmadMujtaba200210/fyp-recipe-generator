@@ -78,7 +78,7 @@ const Slider = () => {
   useEffect(() => {
     const fetchSliderData = async () => {
       try {
-        const response = await getRecipesRandom(5);
+        const response = await getRecipesRandom(10);
         setSlides(response.data);
       } catch (error) {
         console.error("Error fetching slider data:", error);
@@ -108,7 +108,7 @@ const Slider = () => {
         <div className="slide active">
           <div className="left-side">
             <img
-              src={`${process.env.REACT_APP_API_BASE_URL}/get_image_515x262/${currentRecipe.title}.jpg`}
+              src={`${process.env.REACT_APP_API_BASE_URL}/get_image/${currentRecipe.title}.jpg`}
               alt={currentRecipe.title}
               className="slide-image"
             />

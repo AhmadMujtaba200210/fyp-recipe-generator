@@ -81,11 +81,11 @@ const LineSeparator = styled.span`
 `;
 
 const SearchContent = styled.div`
-  width:100%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  
+
   overflow-y: auto;
 `;
 
@@ -149,8 +149,9 @@ export function SearchBar(props) {
   }, [isClickedOutside]);
 
   const prepareSearchQuery = (query) => {
-    const url = `http://api.tvmaze.com/search/shows?q=${query}`;
-    return encodeURI(url);
+    // ${process.env.REACT_APP_BACKEND_API_URL}
+    const url = `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/recipe/search?query=${query}`;
+    return url;
   };
 
   const searchRecipes = async () => {
@@ -163,8 +164,10 @@ export function SearchBar(props) {
 
     try {
       const response = await axios.get(URL);
-      if (response.data && response.data.length === 0) setNoRecipes(true);
-      setRecipes(response.data);
+      if (response.data.content && response.data.length === 0)
+        setNoRecipes(true);
+      setRecipes(response.data.content || []);
+      console.log("Response: ", response);
     } catch (error) {
       console.log("Error: ", error);
     }
@@ -227,12 +230,10 @@ export function SearchBar(props) {
           )}
           {!isLoading &&
             recipes.length > 0 &&
-            recipes.map(({ show }) => (
+            recipes.map((recipe) => (
               <Recipe
-                key={show.id}
-                thumbanilSrc={show.image && show.image.medium}
-                name={show.name}
-                rating={show.rating && show.rating.average}
+                key={recipe.recipeId}
+                name={recipe.title} // Access title directly from the recipe object
               />
             ))}
         </SearchContent>

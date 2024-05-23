@@ -12,6 +12,7 @@ import AiModel from "./screens/ai-model/AiModel";
 import { SingleBlog } from "./screens/blog/SingleBlog";
 import { SingleNews } from "./screens/news/SingleNews";
 import LLMRecipe from "./components/generate/LLMRecipe";
+import { Community } from "./screens/community/Community";
 function App() {
   // using useSelector to grab the current logged in state which is stored in localStorage of browser
   // we will grab the tok en from local storage, which will help us to be logged in
@@ -25,13 +26,14 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/recipe" element={<Listing />} />
-          <Route path="/community" element={<NotFound />} />
+          <Route path="/community" element={<Community />} />
           <Route path="/ai" element={<AiModel />} />
           <Route path="/recipe/:recipe_id" element={<Details />} />
           <Route path="/blog/:blog_title" element={<SingleBlog />} />
           <Route path="/news/:news_title" element={<SingleNews />} />
           <Route path="/recipe/llm" element={<LLMRecipe />} />
           <Route path="/login" element={<LoginForm />} />
+
           <Route
             path="/home"
             element={isAuth ? <Home /> : <Navigate to="/" />}

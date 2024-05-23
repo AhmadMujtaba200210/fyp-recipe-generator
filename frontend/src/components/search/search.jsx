@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../shared/navigationbar.css";
 import SearchBarModel from "./SearchBarModel";
 import { Button } from "@mui/material";
@@ -18,7 +18,6 @@ const Search = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [results, setResults] = React.useState([]);
 
   return (
     <div>
