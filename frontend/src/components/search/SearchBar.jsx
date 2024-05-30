@@ -232,7 +232,7 @@ export function SearchBar(props) {
             recipes.length > 0 &&
             recipes.map((recipe) => (
               <Recipe
-                key={recipe.recipeId}
+                id={recipe.recipeId}
                 name={recipe.title} // Access title directly from the recipe object
               />
             ))}

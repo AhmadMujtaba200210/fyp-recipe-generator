@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const TvShowContainer = styled.div`
@@ -38,12 +39,15 @@ const Rating = styled.span`
 `;
 
 export function Recipe(props) {
-  const { name, rating } = props;
+  const navigate = useNavigate();
+  const { id,name } = props;
 
   return (
-    <TvShowContainer>
+    <TvShowContainer onClick={()=>{
+      navigate("/recipe/"+id);
+    }}>
       <Name>{name}</Name>
-      <Rating>{rating || "N/A"}</Rating>
+      <Rating>{id || "N/A"}</Rating>
     </TvShowContainer>
   );
 }

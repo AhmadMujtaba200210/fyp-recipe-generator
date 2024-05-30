@@ -8,6 +8,8 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../dropzone/Spinner";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentUser, setHistory } from "../../state";
 
 const style = {
   position: "absolute",
@@ -27,6 +29,8 @@ const ListItem = styled("li")(({ theme }) => ({
 }));
 
 export default function RecipeChip({ data }) {
+  const dispatch = useDispatch();
+  const user = useSelector(selectCurrentUser);
   const [chipData, setChipData] = React.useState([]);
   const [open, setOpen] = React.useState(false);
   const [ingredients, setIngredients] = React.useState([]);
@@ -78,29 +82,56 @@ export default function RecipeChip({ data }) {
     console.log(Object.fromEntries(formData.entries()));
 
     const URL = `${process.env.REACT_APP_LLM_API_URL}/api/v1/llm/recipe`;
-
+    const HistoryURL = `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/history/save/${user.userId}`;
+    const HistoryUpdateURL = `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/history/get/${user.userId}`;
     try {
       const response = await fetch(URL, {
         method: "POST",
         body: formData,
       });
       const data = await response.json();
-      console.log(data);
       setRecipeData(data);
+      await fetch(HistoryURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const updatedHistory = await fetch(HistoryUpdateURL, {
+        method: "GET",
+      });
+      const historyData = await updatedHistory.json();
+      dispatch(setHistory(historyData));
       return data;
     } catch (error) {
       setSnackbarMessage(error.message);
       console.error(error);
       setSnackbarOpen(true);
     } finally {
-      setIsSubmitting(false); // Set isSubmitting to false after API call completes
+      setIsSubmitting(false);
     }
   };
 
   const handleGenerateRecipe = async () => {
+    const validIngredients = chipData.filter(
+      (item) => item !== "irrelevant object"
+    );
+
+    // Update chipData and ingredients with the cleaned-up array
+    setChipData(validIngredients);
+    setIngredients(validIngredients);
+
+    // Check if there are any valid ingredients in the updated chipData
+    if (validIngredients.length === 0) {
+      setSnackbarMessage("No valid ingredients selected.");
+      setSnackbarOpen(true); // Open the Snackbar to show the message
+      return; // Stop further execution of this function
+    }
     try {
       setIsSubmitting(true); // Set isSubmitting to true before initiating API call
       const recipeLLM = await handleRecipeGeneration();
+
       navigate(`/recipe/llm`, {
         state: {
           recipe: recipeLLM,

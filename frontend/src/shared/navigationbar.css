@@ -229,14 +229,15 @@ a.readmore, .readmore {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
     display: inline-block;
-    height: 18px;
+    height: 35.5px;
     padding: 8px;
     margin: 0 0 0;
     border: 1px solid #d5d5d5;
     font: 14px "MuseoSlab500", Arial, Helvetica, sans-serif;
-    color: #888;
+    color: #161515;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -782,6 +783,7 @@ img{
     background: url(/src/assets/images/content-bg.png) repeat-x #fff;
     padding: 0 0 0;
     z-index: 600;
+    border-radius: 10px;
 }
 
 #content.homepage {

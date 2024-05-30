@@ -1,29 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../shared/navigationbar.css";
 import RecipeInstructions from "../../components/instructions/RecipeInstructions";
 import RecipeIngredients from "../../components/ingredients/RecipeIngredients";
 import { NavigationBar } from "../../shared/NavigationBar";
 import MiscRecipes from "../../components/misc-recipes/MiscRecipes";
 import Footer from "../../components/footer/Footer";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { FaHeart } from "react-icons/fa";
-import SideProfile from "../sideprofile/SideProfile";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../state";
+import SideProfile from "../../components/sideprofile/SideProfile";
+import axios from "axios";
 
-const LLMRecipe = () => {
-  const location = useLocation();
-  const { recipe } = location.state;
+const HistoryView = () => {
+  const { history_id } = useParams();
+
+  //   const { recipe } = location.state;
   const user = useSelector(selectCurrentUser);
-
+  
   const [isLiked, setIsLiked] = useState(false);
+  const [recipe, setRecipe] = useState(null);
 
   const toggleLike = () => {
     setIsLiked(!isLiked);
   };
+  useEffect(() => {
+    const getRecipe = async (id) => {
+      try {
+        const URL = `${process.env.REACT_APP_BACKEND_API_URL}/api/v1/history/user/${id}`;
+        const response = await axios.get(URL);
+        setRecipe(response.data);
+      } catch (error) {
+        console.error("Error fetching recipe Recipe:", error);
+      }
+    };
 
-  return (
+    getRecipe(history_id);
+  }, [history_id]);
+
+  if (!recipe) return null;
+return (
     <div>
       <NavigationBar />
       <div className="main-wrap">
@@ -48,7 +65,7 @@ const LLMRecipe = () => {
                     <FaHeart style={{ color: isLiked ? "red" : "black" }} />
                   </IconButton>
                 </div>
-                
+
                 <ul className="recipe-cat-info clearfix">
                   <li>
                     Cuisine:
@@ -76,7 +93,7 @@ const LLMRecipe = () => {
               {/* Comment Box - Placeholder or could be implemented if required */}
             </div>
             <div id="sidebar">
-            {user && <SideProfile/>}
+              {user && <SideProfile />}
               <MiscRecipes />
             </div>
           </div>
@@ -89,4 +106,4 @@ const LLMRecipe = () => {
   );
 };
 
-export default LLMRecipe;
+export default HistoryView;

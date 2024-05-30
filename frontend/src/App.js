@@ -13,6 +13,7 @@ import { SingleBlog } from "./screens/blog/SingleBlog";
 import { SingleNews } from "./screens/news/SingleNews";
 import LLMRecipe from "./components/generate/LLMRecipe";
 import { Community } from "./screens/community/Community";
+import HistoryView from "./screens/history/HistoryView";
 function App() {
   // using useSelector to grab the current logged in state which is stored in localStorage of browser
   // we will grab the tok en from local storage, which will help us to be logged in
@@ -32,6 +33,7 @@ function App() {
           <Route path="/blog/:blog_title" element={<SingleBlog />} />
           <Route path="/news/:news_title" element={<SingleNews />} />
           <Route path="/recipe/llm" element={<LLMRecipe />} />
+          <Route path="/history/:history_id" element={<HistoryView />} />
           <Route path="/login" element={<LoginForm />} />
 
           <Route
